@@ -8,6 +8,7 @@ ehthumbs.db
 # Editores / IDE
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 *~
