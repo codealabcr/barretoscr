@@ -419,6 +419,24 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   transition: transform 1.8s var(--ease);
 }
 .hero-media:hover img { transform: scale(1.03); }
+
+/* Logo variant: no cover/crop, no filters, generous padding, brand-toned shadow */
+.hero-media--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 56px);
+}
+.hero-media--logo img {
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 30px rgba(74, 46, 26, 0.22));
+  transition: none;
+}
+.hero-media--logo:hover img { transform: none; }
 .hero-media__tag {
   position: absolute;
   top: 18px; left: 18px;
@@ -499,6 +517,28 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   color: var(--accent);
   font-size: 0.6em;
   font-style: normal;
+}
+.brand-tag {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: 0.45em;
+  color: var(--accent);
+  font-size: 0.42em;
+  font-style: normal;
+  letter-spacing: 0;
+}
+.brand-legend {
+  margin: 22px 0 0;
+  text-align: center;
+  font-family: var(--f-display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft, rgba(26,23,20,0.65));
+}
+.brand-legend .brand-tag {
+  margin: 0 4px 0 0;
+  vertical-align: baseline;
+  font-size: 1em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━ Categories ━━━━━━━━━━━━━━━━━━━━ */

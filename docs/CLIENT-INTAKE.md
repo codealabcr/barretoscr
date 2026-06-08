@@ -6,7 +6,7 @@
 
 ## Datos legales (sociedad)
 
-- **Razón social:** Grupo Barretos Sociedad Anónima
+- **Razón social:** GRUPO BARRETOS SOCIEDAD ANONIMA
 - **Cédula jurídica:** 3-101-903898
 
 > **Acción:** actualizar el campo "Responsable del tratamiento" en `privacidad/index.html` con razón social + cédula, y considerar usar la sociedad como `legalName` en el JSON-LD `ClothingStore`. Permite cerrar uno de los Open Items del CLAUDE.md y avanza el registro de `barretos.cr`.
@@ -52,21 +52,24 @@
 
 > Cartago, carretera a Paraíso, del Restaurante Versalles 75 metros sur.
 
-> **Acción:** actualizar:
-> 1. JSON-LD `ClothingStore.address` (`streetAddress`) en `index.html`
-> 2. Sección "Visítanos" / mapa
-> 3. Footer si aplica
-> 4. Confirmar coordenadas geo (`latitude`/`longitude`) contra la nueva dirección — el `geo` del JSON-LD debe coincidir.
+**Coordenadas confirmadas (Google Maps):** `9.8600137, -83.9061027`.
+**Place ID en Google Maps:** `0x8fa0df0044b1fad7:0x3543ecd8f7243706` ("Barretos Western Store CR").
 
-## Horario
+> **Aplicado al sitio (2026-06-08):**
+> 1. JSON-LD: `streetAddress`, `geo.latitude`, `geo.longitude` actualizados.
+> 2. Sección "Visítanos": dirección + iframe oficial de Google Maps con el place ID real.
+> 3. Hero meta: actualizada a "Cartago, carretera a Paraíso".
+> 4. CTA "Abrir en Waze" usa coords reales.
 
-- **Lunes a viernes: 8:00 a 17:00 — jornada continua**
-- Sábados/domingos: no especificado por el cliente
+## Horario (completo, confirmado 2026-06-08)
 
-> **Acción:**
-> 1. Actualizar `openingHoursSpecification` en JSON-LD a `Mo,Tu,We,Th,Fr 08:00-17:00`
-> 2. Actualizar sección "Visítanos" en la home
-> 3. **Preguntar al cliente** si abren sábados/domingos o están cerrados — el JSON-LD necesita esa info para no mentir.
+- **Lunes a viernes:** 8:00 a.m. – 5:00 p.m.
+- **Sábado:** 9:00 a.m. – 4:00 p.m.
+- **Domingo:** cerrado
+
+> **Aplicado al sitio (2026-06-08):**
+> 1. JSON-LD `openingHoursSpecification` con dos entradas: Mo–Fr 08:00–17:00 y Sa 09:00–16:00.
+> 2. Sección "Visítanos" y meta de la home actualizadas.
 
 ---
 
@@ -78,9 +81,12 @@ Se guardan en `docs/client-photos/`. Cuando se vayan a usar como assets reales d
 
 De los "Open Items Waiting on Client" en `CLAUDE.md`:
 
-- [x] Sociedad legal name + cédula jurídica
-- [x] Dirección
-- [x] Horario (parcial — falta confirmar fines de semana)
-- [ ] Real catalog photos — pendiente verificar las fotos enviadas
+- [x] Sociedad legal name + cédula jurídica — aplicado a `privacidad/` + JSON-LD `legalName`/`taxID`
+- [x] Dirección — aplicado a JSON-LD, Visítanos, hero meta y mapa con place ID real
+- [x] Horario completo (Lun–Vie 8–17, Sáb 9–16, Dom cerrado) — aplicado
+- [x] Logo nuevo — convertido a WebP (alpha, 800px / 400px) y montado en el hero
+- [ ] Real catalog photos para reemplazar Unsplash en categorías / Instagram lookbook
 - [ ] Real testimonials with consent — sigue pendiente
-- [ ] Confirmar teléfono legal — sigue pendiente (asumimos +506 8844 3180)
+- [ ] Confirmar teléfono legal de la sociedad (asumimos +506 8844 3180)
+- [ ] Marca "Mesace": verificar deletreo correcto antes de mostrar
+- [ ] Decisión: categorías grid sigue en 5 o expande a 10 — depende del cliente
