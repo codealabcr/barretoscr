@@ -102,9 +102,7 @@ Outside the `<header>` but inside `<body>`. Fixed positioned bottom-right with p
 ## SEO
 
 - **Canonical URLs always absolute to `barretos.cr`**. The origin at `codealabcr.github.io/barretoscr/` is still reachable but should never be the canonical target.
-- **JSON-LD**: two blocks in `index.html`:
-  - `ClothingStore` with full address, geo, hours, sameAs, phone E.164 (no dashes), logo
-  - `FAQPage` with 5 visible answers (matching content also visible on the page)
+- **JSON-LD**: one block in `index.html` — `ClothingStore` with full address, geo, hours, sameAs, phone E.164 (no dashes), logo. A `FAQPage` block used to live here but was removed after Google announced FAQ rich results would stop appearing in Search as of 2026-05-07 (Rich Results Test support drops 2026-06). The visible FAQ content on the page stays — only the structured data is gone.
 - `privacidad/` has a `WebPage` JSON-LD with `isPartOf` linking back to the store entity.
 - `robots.txt` and `sitemap.xml` at repo root.
 - **All internal nav links use relative paths** (`href="#section"`, `href="privacidad/"`, `href="../#section"`) so the site works at both the `codealabcr.github.io/barretoscr/` subpath and the `barretos.cr/` root.
