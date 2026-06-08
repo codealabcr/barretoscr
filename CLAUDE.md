@@ -134,6 +134,13 @@ If you add or remove a third-party processor (e.g. adding Meta Pixel later), upd
 - **Never commit content from `.claude/`** — it's already gitignored.
 - **Treat `barretos.cr` URLs in JSON-LD/canonical as the source of truth even before the domain is live** — do not "fix" them to point at GH Pages.
 
+## Client-Facing Docs (in `docs/`)
+
+- `docs/COPY-BRIEF.md` — questionnaire to send to the client for landing-page copy. Section-by-section.
+- `docs/WHATSAPP-SETUP.md` — WhatsApp Business setup checklist (minimum / recommended / when-they-grow), plus the pre-filled message catalog this site sends.
+
+If a client question comes up about copy or WA setup, point them at these.
+
 ## Open Items Waiting on Client
 
 - Real catalog photos (replace 11 Unsplash placeholders + complete alt text)
