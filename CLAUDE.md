@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Barretos Western Store CR** — Single-page marketing site for a Costa Rican western retail store based in Cartago. Vanilla HTML/CSS/JS, no build step. Hosted on GitHub Pages, will move to `barretos.cr` once the client registers the domain.
+**Barretos Western Store CR** — Single-page marketing site for a Costa Rican western retail store based in Cartago. Vanilla HTML/CSS/JS, no build step. Origin on GitHub Pages, fronted by Cloudflare at the apex domain `barretos.cr`.
 
-- **Live (preview)**: https://codealabcr.github.io/barretoscr/
+- **Live**: https://barretos.cr/
+- **Origin (still accessible)**: https://codealabcr.github.io/barretoscr/
 - **Repo**: https://github.com/codealabcr/barretoscr
 - **Owner of the business**: Client (not Codealab). Codealab built and maintains the site.
 - **Primary conversion**: WhatsApp click (`wa.me/50688443180`). The site has no e-commerce, no forms, no checkout — every CTA funnels to WhatsApp.
@@ -29,6 +30,22 @@ gh api /repos/codealabcr/barretoscr/pages/builds --jq '.[0] | {status,duration,c
 ```
 
 There are no tests, no linters, no formatters configured. Browser DevTools is the test surface.
+
+### Hosting topology
+
+```
+Visitor → Cloudflare proxy (TLS terminates here) → GitHub Pages (origin) → Fastly cache → repo HTML
+```
+
+- **Registrar**: NIC.cr (apex `.cr` domain).
+- **Nameservers**: Cloudflare (`amy.ns.cloudflare.com`, `jihoon.ns.cloudflare.com`). NIC.cr just delegates.
+- **DNS records (in Cloudflare panel)**:
+  - 4× `A` records `@` → `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` — **proxied (🟠)**
+  - 1× `CNAME` `www` → `codealabcr.github.io` — **proxied (🟠)**
+- **`CNAME` file in repo root** contains literally `barretos.cr`. This is what triggers GitHub Pages to (a) treat the request as belonging to the custom domain and (b) 301 `www.barretos.cr` → `barretos.cr` for us at the origin layer.
+- **SSL/TLS mode in Cloudflare**: **Full** (not "Full (strict)"). With proxy on, GitHub Pages can't verify DNS resolves to its own IPs, so it never issues its own Let's Encrypt cert for `barretos.cr`. The origin therefore presents the default `*.github.io` cert, which "Full (strict)" would reject by hostname mismatch.
+  - **To upgrade to Full (strict) someday**: flip the 4 A records to **DNS-only** for ~15 min, wait until `gh api /repos/codealabcr/barretoscr/pages` shows `https_enforced` becomes settable / a cert is issued, flip back to proxied, then change Cloudflare SSL/TLS to "Full (strict)". The cert lives on GH's servers and is presented to Cloudflare on the origin connection even after re-enabling proxy.
+- **`https_enforced` in the GH Pages API is `false` and that's expected**. Cloudflare handles the HTTP→HTTPS redirect via **Always Use HTTPS** + **Automatic HTTPS Rewrites** in SSL/TLS → Edge Certificates. Do not try to flip `https_enforced` to `true` while proxied — the API errors with `404 The certificate does not exist yet`.
 
 ## Architecture & Key Decisions
 
@@ -84,13 +101,13 @@ Outside the `<header>` but inside `<body>`. Fixed positioned bottom-right with p
 
 ## SEO
 
-- **Canonical URLs always absolute to `barretos.cr`** even while hosted at codealabcr.github.io. This is intentional — once the domain is connected, no migration needed.
+- **Canonical URLs always absolute to `barretos.cr`**. The origin at `codealabcr.github.io/barretoscr/` is still reachable but should never be the canonical target.
 - **JSON-LD**: two blocks in `index.html`:
   - `ClothingStore` with full address, geo, hours, sameAs, phone E.164 (no dashes), logo
   - `FAQPage` with 5 visible answers (matching content also visible on the page)
 - `privacidad/` has a `WebPage` JSON-LD with `isPartOf` linking back to the store entity.
 - `robots.txt` and `sitemap.xml` at repo root.
-- **All internal nav links use relative paths** (`href="#section"`, `href="privacidad/"`, `href="../#section"`) so the site works at both `codealabcr.github.io/barretoscr/` and the future `barretos.cr/` root.
+- **All internal nav links use relative paths** (`href="#section"`, `href="privacidad/"`, `href="../#section"`) so the site works at both the `codealabcr.github.io/barretoscr/` subpath and the `barretos.cr/` root.
 
 ### Image placeholder convention
 Unsplash hot-linked product images are placeholder. Each has a `<!-- TODO alt: ... -->` comment above it indicating what the descriptive alt text should be when real catalog photos arrive. Empty `alt=""` is intentional until then.
@@ -98,7 +115,7 @@ Unsplash hot-linked product images are placeholder. Each has a `<!-- TODO alt: .
 ## Analytics & Privacy
 
 - **GA4 ID**: `G-MLCG6GS7YJ`
-- **Search Console verification**: meta tag on both pages with content `Bd5Yy27x1V4vq8RcGWsoRCzhiceaFvMi2qmmuk29bGI` (URL prefix property: `https://codealabcr.github.io/barretoscr/`)
+- **Search Console verification**: meta tag on both pages with content `Bd5Yy27x1V4vq8RcGWsoRCzhiceaFvMi2qmmuk29bGI`. Original property is the URL prefix `https://codealabcr.github.io/barretoscr/`. A new `https://barretos.cr/` property should be added in Search Console now that the domain is live — the same meta tag re-verifies it automatically.
 
 The GA4 bootstrap is wrapped in a **DNT/GPC guard** — if `navigator.doNotTrack`, `navigator.globalPrivacyControl`, or related signals are set, gtag.js never loads and no events fire. This honors what the privacy policy promises. **Do not "simplify" this guard away.**
 
@@ -132,7 +149,8 @@ If you add or remove a third-party processor (e.g. adding Meta Pixel later), upd
 - **Never run SVGO with `--precision=0` on the logo** — Potrace winding gets corrupted and the logo renders as wireframe outlines.
 - **Never remove the DNT/GPC guard around GA4 loading** — the privacy policy promises it.
 - **Never commit content from `.claude/`** — it's already gitignored.
-- **Treat `barretos.cr` URLs in JSON-LD/canonical as the source of truth even before the domain is live** — do not "fix" them to point at GH Pages.
+- **`barretos.cr` is the canonical host in JSON-LD, sitemap, robots, and canonical tags** — never "fix" them to point at the `codealabcr.github.io` origin.
+- **Never enable Cloudflare SSL/TLS "Full (strict)" without going through the DNS-only cert-bootstrap dance** (see Hosting topology) — origin will start presenting `*.github.io` and break HTTPS for visitors.
 
 ## Client-Facing Docs (in `docs/`)
 
@@ -143,8 +161,17 @@ If a client question comes up about copy or WA setup, point them at these.
 
 ## Open Items Waiting on Client
 
-- Real catalog photos (replace 11 Unsplash placeholders + complete alt text)
-- Real testimonials with consent (currently 3 fabricated names)
-- Confirm legal phone, hours, and dirección
-- Sociedad legal name + cédula jurídica (needed to register `barretos.cr` and finalize the privacy policy "Responsable")
-- Once domain is registered: add `CNAME` file at repo root, configure DNS A records to GitHub Pages IPs (`185.199.108.153` and siblings), GH Pages auto-provisions Let's Encrypt SSL.
+- Real catalog photos (replace 11 Unsplash placeholders + complete alt text). Raw photos the client sends arrive in `docs/client-photos/`; intake notes in `docs/CLIENT-INTAKE.md`.
+- Real testimonials with consent (currently 3 fabricated names).
+- Confirm Saturday/Sunday opening hours (client confirmed Mon–Fri 8:00–17:00 jornada continua but didn't specify weekends — JSON-LD `openingHoursSpecification` currently understates if they open weekends).
+- Confirm legal phone (assumed `+506 8844 3180`).
+- Apply intake response (`docs/CLIENT-INTAKE.md`, captured 2026-06-08) to the site:
+  - Update privacy "Responsable": **Grupo Barretos Sociedad Anónima, cédula jurídica 3-101-903898**.
+  - Update address in JSON-LD + "Visítanos": **Cartago, carretera a Paraíso, del Restaurante Versalles 75 m sur**. Recompute geo coords for JSON-LD.
+  - Update brands strip: Justin Boots, Nokota Horse, Tony Lamas, Ariat, Kimes Ranch, Mesace *(spelling TBC)*, Yellowstone, Wrangler, Roper, Ranch Corral. Highlight the exclusive distributions (Nokota Horse, Justin Boots, Wrangler).
+  - Decide whether categories grid stays at 5 (recommended hero + featured) or expands to the full 10 the client listed.
+
+### Done
+
+- ~~Domain `barretos.cr` registered, DNS configured, site live with SSL via Cloudflare~~ (2026-06-08).
+- ~~Sociedad legal name + cédula jurídica obtained from client~~ (2026-06-08, pending application to privacy policy).
