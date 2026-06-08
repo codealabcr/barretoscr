@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear assets internos que no aportan valor de búsqueda
+Disallow: /assets/script.js
+Disallow: /assets/*.bmp
+Disallow: /assets/*.pbm
+
+Sitemap: https://barretos.cr/sitemap.xml
