@@ -911,10 +911,6 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   display: block;
   object-fit: contain;
   margin-bottom: 10px;
-  background: var(--bg);
-  border-radius: 14px;
-  padding: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 .footer-brand p {
   margin: 16px 0 0;
