@@ -433,16 +433,30 @@
 
 <script src="../assets/script.js" defer></script>
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCG6GS7YJ"></script>
+<!-- Google Analytics 4 — honra DNT / Global Privacy Control -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MLCG6GS7YJ', {
-    anonymize_ip: true,
-    cookie_flags: 'SameSite=Strict;Secure'
-  });
+  (function () {
+    var dnt = navigator.doNotTrack === "1"
+           || navigator.doNotTrack === "yes"
+           || window.doNotTrack === "1"
+           || navigator.msDoNotTrack === "1"
+           || navigator.globalPrivacyControl === true;
+    if (dnt) return;
+
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-MLCG6GS7YJ";
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", "G-MLCG6GS7YJ", {
+      anonymize_ip: true,
+      cookie_flags: "SameSite=Strict;Secure"
+    });
+  })();
 </script>
 
 </body>
