@@ -226,9 +226,10 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 }
 .brand:hover { opacity: 0.78; transform: translateY(-1px); }
 .brand-mark {
-  width: 80px; height: 80px;
+  width: 96px;
+  height: auto;
   display: block;
-  color: var(--ink);
+  object-fit: contain;
 }
 
 .site-nav { display: none; }
@@ -905,10 +906,15 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 }
 .footer-brand { display: grid; gap: 8px; }
 .footer-logo {
-  width: 120px; height: 120px;
+  width: 168px;
+  height: auto;
   display: block;
-  color: var(--bg);
-  margin-bottom: 6px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 .footer-brand p {
   margin: 16px 0 0;
@@ -977,7 +983,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   .nav-toggle, .header-spacer { display: none; }
   .mobile-nav { display: none !important; }
   .site-nav { display: block; }
-  .brand-mark { width: 120px; height: 120px; }
+  .brand-mark { width: 140px; height: auto; }
   .header-inner {
     grid-template-columns: 1fr auto 1fr;
     gap: clamp(20px, 4vw, 56px);
