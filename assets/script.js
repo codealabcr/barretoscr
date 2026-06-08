@@ -1,4 +1,36 @@
 (() => {
+  const track = (event, params) => {
+    if (typeof window.gtag === "function") window.gtag("event", event, params);
+  };
+
+  document.querySelectorAll("a[href]").forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    const text = (a.textContent || "").trim().slice(0, 60) || "CTA";
+
+    if (href.includes("wa.me/")) {
+      a.addEventListener("click", () => {
+        track("whatsapp_click", {
+          link_text: text,
+          location: window.location.pathname,
+        });
+      });
+    } else if (href.includes("instagram.com")) {
+      a.addEventListener("click", () => track("social_click", { network: "instagram" }));
+    } else if (href.includes("tiktok.com")) {
+      a.addEventListener("click", () => track("social_click", { network: "tiktok" }));
+    } else if (href.includes("facebook.com")) {
+      a.addEventListener("click", () => track("social_click", { network: "facebook" }));
+    } else if (href.includes("waze.com")) {
+      a.addEventListener("click", () => track("outbound_click", { destination: "waze" }));
+    } else if (href.includes("google.com/maps") || href.includes("maps.google")) {
+      a.addEventListener("click", () => track("outbound_click", { destination: "google_maps" }));
+    } else if (href.startsWith("mailto:")) {
+      a.addEventListener("click", () => track("email_click", { destination: href.slice(7) }));
+    } else if (href.startsWith("tel:")) {
+      a.addEventListener("click", () => track("phone_click", { destination: href.slice(4) }));
+    }
+  });
+
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 

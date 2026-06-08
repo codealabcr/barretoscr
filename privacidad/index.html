@@ -9,6 +9,8 @@
 <meta name="description" content="Política de privacidad de Barretos Western Store. Cómo recopilamos, usamos y protegemos sus datos personales conforme a la Ley N° 8968 de Costa Rica.">
 <link rel="canonical" href="https://barretos.cr/privacidad/">
 
+<meta name="google-site-verification" content="Bd5Yy27x1V4vq8RcGWsoRCzhiceaFvMi2qmmuk29bGI">
+
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CR">
 <meta property="og:site_name" content="Barretos Western Store">
@@ -170,10 +172,16 @@
           correo, recibimos su dirección de email y el contenido del mensaje.
         </li>
         <li>
-          <strong>Datos de navegación anónimos:</strong> nuestro servidor
-          puede registrar dirección IP, tipo de navegador, sistema operativo
-          y páginas visitadas, con fines exclusivamente estadísticos y de
-          seguridad.
+          <strong>Datos analíticos agregados:</strong> usamos Google
+          Analytics 4 con anonimización de IP para recopilar estadísticas
+          de uso (páginas vistas, eventos de interacción, tipo de
+          dispositivo, país, navegador). Estos datos son <em>seudónimos</em>
+          y no permiten identificarle personalmente.
+        </li>
+        <li>
+          <strong>Datos de navegación técnicos:</strong> nuestro servidor
+          y CDN pueden registrar dirección IP, tipo de navegador y páginas
+          visitadas con fines exclusivamente operativos y de seguridad.
         </li>
       </ul>
     </section>
@@ -205,19 +213,24 @@
       </p>
       <ul>
         <li>
-          <strong>Meta Platforms (WhatsApp e Instagram):</strong> las
-          comunicaciones se procesan bajo la
-          <a href="https://www.whatsapp.com/legal/privacy-policy" rel="noopener" target="_blank">Política de Privacidad de WhatsApp</a>.
+          <strong>Meta Platforms (WhatsApp, Instagram y Facebook):</strong>
+          las comunicaciones y enlaces a nuestras redes se procesan bajo la
+          <a href="https://www.whatsapp.com/legal/privacy-policy" rel="noopener" target="_blank">Política de Privacidad de WhatsApp</a>
+          y la
+          <a href="https://privacycenter.instagram.com/policy" rel="noopener" target="_blank">de Instagram/Meta</a>.
         </li>
         <li>
-          <strong>Google LLC (Maps y Fonts):</strong> el mapa embebido y las
-          tipografías cargan recursos desde Google, sujeto a la
+          <strong>Google LLC (Analytics, Search Console, Maps y Fonts):</strong>
+          usamos Google Analytics 4 con anonimización de IP para entender
+          cómo se usa el sitio; Google Search Console para indexación y
+          rendimiento orgánico; Maps para el mapa embebido y Fonts para las
+          tipografías. Todo bajo la
           <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Política de Privacidad de Google</a>.
         </li>
         <li>
-          <strong>Proveedor de hosting:</strong> nuestro proveedor de
-          alojamiento web puede registrar logs técnicos con fines de seguridad
-          y rendimiento.
+          <strong>GitHub, Inc. (hosting):</strong> el sitio se aloja en
+          GitHub Pages y puede registrar logs técnicos básicos
+          (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener" target="_blank">política de GitHub</a>).
         </li>
       </ul>
       <p>
@@ -266,14 +279,42 @@
       <span class="legal-num">vii.</span>
       <h2>Cookies y tecnologías similares</h2>
       <p>
-        Este sitio actualmente no utiliza cookies propias para rastrear su
-        actividad ni para fines publicitarios. Los servicios de terceros
-        mencionados (Google Maps, Google Fonts) pueden establecer sus
-        propias cookies bajo sus políticas.
+        Este sitio utiliza cookies con dos finalidades:
       </p>
+      <ul>
+        <li>
+          <strong>Cookies analíticas (Google Analytics 4):</strong> generan
+          identificadores seudónimos (<code>_ga</code>, <code>_ga_*</code>)
+          que nos permiten contar visitantes únicos, ver rutas de navegación
+          y medir conversiones. Estas cookies caducan a los <strong>2 años</strong>.
+        </li>
+        <li>
+          <strong>Cookies de terceros incrustados:</strong> el mapa de
+          Google Maps y las tipografías de Google Fonts pueden establecer
+          sus propias cookies bajo sus políticas.
+        </li>
+      </ul>
       <p>
-        Usted puede configurar su navegador para rechazar cookies de
-        terceros sin afectar la funcionalidad principal de este sitio.
+        <strong>Cómo desactivar el seguimiento analítico:</strong>
+      </p>
+      <ul>
+        <li>
+          Instalar el
+          <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">Complemento de Inhabilitación de Google Analytics</a>
+          en su navegador.
+        </li>
+        <li>
+          Configurar su navegador para bloquear cookies de terceros o
+          activar el modo de navegación privada/incógnito.
+        </li>
+        <li>
+          Activar la opción "Do Not Track" o "Global Privacy Control" en
+          su navegador.
+        </li>
+      </ul>
+      <p>
+        Desactivar las cookies analíticas no afecta el funcionamiento
+        principal del sitio.
       </p>
     </section>
 
@@ -391,6 +432,18 @@
 </footer>
 
 <script src="../assets/script.js" defer></script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCG6GS7YJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MLCG6GS7YJ', {
+    anonymize_ip: true,
+    cookie_flags: 'SameSite=Strict;Secure'
+  });
+</script>
 
 </body>
 </html>
