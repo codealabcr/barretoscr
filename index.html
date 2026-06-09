@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/styles.css?v=20260608e">
+<link rel="stylesheet" href="assets/styles.css?v=20260609">
 
 <script type="application/ld+json">
 {
@@ -301,19 +301,20 @@
       </header>
 
       <!--
-        TODO Imágenes placeholder (Unsplash hotlink).
-        Reemplazar con fotos reales del catálogo de Barretos cuando lleguen.
-        Cuando se sustituyan: completar `alt` con descriptor SEO,
-        ej: alt="Botas Ariat Heritage de cuero tabaco — caballero".
-        Mantener `alt=""` solo si la imagen final es puramente decorativa.
+        Fotos reales del catálogo (assets/categorias/, curadas en
+        docs/client-photos/productos/selects/). Cada tarjeta lleva dos:
+        la base y una segunda (.cat-img--alt) que entra por crossfade
+        en hover (desktop) o alternancia automática (touch).
+        TODO pendiente del cliente: fotos reales de Fajas y Monturas
+        (esas dos tarjetas siguen con placeholder de Unsplash).
       -->
       <ul class="cat-grid" role="list">
         <li class="cat-card cat-card--lg">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20botas" rel="noopener">
             <span class="cat-num">01</span>
             <span class="cat-badge" aria-label="Categoría más vendida">Más vendida</span>
-            <!-- TODO alt: descripción SEO de la bota destacada -->
-            <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" width="1600" height="900">
+            <img src="assets/categorias/botas-1.webp" alt="Botas Justin Boots de cuero cognac sobre su caja original — caballero" loading="lazy" width="1200" height="1200">
+            <img class="cat-img--alt" src="assets/categorias/botas-2.webp" alt="" aria-hidden="true" loading="lazy" width="1200" height="1200">
             <div class="cat-body">
               <h3>Botas</h3>
               <p>Justin Boots, Nokota Horse, Wrangler, Ariat, Tony Lamas — caballero, dama y juvenil.</p>
@@ -325,8 +326,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20sombreros" rel="noopener">
             <span class="cat-num">02</span>
-            <!-- TODO alt: descripción SEO del sombrero destacado -->
-            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/sombreros-1.webp" alt="Sombrero Yellowstone de fieltro camel sobre cajas Bull Ranch" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/sombreros-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Sombreros</h3>
               <p>Stetson y modelos western en fieltro y paja para diario o eventos.</p>
@@ -338,8 +339,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20ropa" rel="noopener">
             <span class="cat-num">03</span>
-            <!-- TODO alt: descripción SEO de la prenda destacada -->
-            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/ropa-1.webp" alt="Camisa western Winster con patrón azteca café y crema — caballero" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/ropa-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Ropa</h3>
               <p>Wrangler, Ariat y Kimes Ranch. Camisas, jeans y básicos western.</p>
@@ -364,8 +365,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20billeteras" rel="noopener">
             <span class="cat-num">05</span>
-            <!-- TODO alt: descripción SEO de la billetera destacada -->
-            <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/billeteras-1.webp" alt="Billetera de cuero grabado a mano con escena de vaqueros lazando" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/billeteras-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Billeteras</h3>
               <p>Cuero artesanal con grabado tradicional vaquero.</p>
@@ -377,8 +378,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20gorras" rel="noopener">
             <span class="cat-num">06</span>
-            <!-- TODO alt: descripción SEO de la gorra destacada -->
-            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/gorras-1.webp" alt="Gorras trucker Kimes Ranch en mostaza, óxido y negro" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/gorras-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Gorras</h3>
               <p>Trucker, snapback y Ranch &amp; Corral para uso diario.</p>
@@ -403,8 +404,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20mantillones" rel="noopener">
             <span class="cat-num">08</span>
-            <!-- TODO alt: descripción SEO del mantillón destacado -->
-            <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/mantillones-2.webp" alt="Mantillones Boots Horse de fieltro en colores con base de borrega" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/mantillones-1.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Mantillones</h3>
               <p>Bajo-silla en lana, fieltro y diseños navajo tradicionales.</p>
@@ -416,8 +417,8 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20aperos" rel="noopener">
             <span class="cat-num">09</span>
-            <!-- TODO alt: descripción SEO del apero destacado -->
-            <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/aperos-1.webp" alt="Cabezada y pechera con cuentas rojas sobre piel de vaca" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/aperos-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Aperos</h3>
               <p>Bridas, cabezadas, estribos y arreos completos.</p>
@@ -429,11 +430,11 @@
         <li class="cat-card">
           <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20accesorios" rel="noopener">
             <span class="cat-num">10</span>
-            <!-- TODO alt: descripción SEO del accesorio destacado -->
-            <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <img src="assets/categorias/accesorios-1.webp" alt="Bolso Nokota Horse de gamuza con flecos y tachuelas" loading="lazy" width="800" height="800">
+            <img class="cat-img--alt" src="assets/categorias/accesorios-2.webp" alt="" aria-hidden="true" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Accesorios</h3>
-              <p>Pañuelos, llaveros y piezas de talabartería de origen.</p>
+              <p>Bolsos, pañuelos y piezas de talabartería de origen.</p>
               <span class="cat-link">Consultar &rarr;</span>
             </div>
           </a>

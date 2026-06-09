@@ -590,6 +590,32 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 }
 .cat-card a:hover img { transform: scale(1.06); filter: contrast(1.05) saturate(1.05); }
 
+/* Segunda foto por categoría: crossfade al hover; en pantallas sin
+   hover (touch) alterna sola, con delays negativos para desfasar tarjetas. */
+.cat-img--alt {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .7s var(--ease), transform 1.2s var(--ease), filter .5s var(--ease);
+}
+.cat-card a:hover .cat-img--alt,
+.cat-card a:focus-visible .cat-img--alt { opacity: 1; }
+
+@media (hover: none) {
+  .cat-img--alt { animation: cat-swap 12s ease-in-out infinite; }
+  .cat-card:nth-child(2n) .cat-img--alt { animation-delay: -4s; }
+  .cat-card:nth-child(3n) .cat-img--alt { animation-delay: -8s; }
+}
+@keyframes cat-swap {
+  0%, 42% { opacity: 0; }
+  50%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-img--alt { animation: none; }
+}
+
 .cat-num {
   position: absolute;
   top: 14px; left: 16px;
