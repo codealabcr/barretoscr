@@ -75,7 +75,7 @@ npx svgo assets/logo.svg --multipass --precision=2   # NEVER --precision=0 (brea
 - `assets/styles.css` — main stylesheet. Mobile-first, CSS variables at `:root` for palette and fonts.
 - `assets/legal.css` — extra styles for legal pages (TOC, numbered sections). Only loaded on `/privacidad/`.
 
-**Cache-busting:** every stylesheet link uses a `?v=YYYYMMDD` query string (e.g. `assets/styles.css?v=20260608`). Cloudflare and the browser cache the file by full URL, so the query string is what forces a refresh. **When you make a CSS change that should reach existing visitors immediately, bump the date in every `?v=` in `index.html` and `privacidad/index.html` (3 refs total).** A no-op change in CSS with the same `?v=` will sit in stale caches for days.
+**Cache-busting:** every stylesheet link uses a `?v=YYYYMMDD` query string (e.g. `assets/styles.css?v=20260608`). Cloudflare and the browser cache the file by full URL, so the query string is what forces a refresh. **When you make a CSS change that should reach existing visitors immediately, bump the version in every `?v=` in `index.html` and `privacidad/index.html` (3 refs total).** For same-day re-deploys append a letter suffix (`20260608` → `20260608b` → `20260608c`); next-day deploys reset to the new date. A no-op change in CSS with the same `?v=` will sit in stale caches for days.
 
 **Palette** (from brand audit of the physical store + logo):
 - `--bg: #F4EFE5` (crema hueso, dominant)

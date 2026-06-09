@@ -984,6 +984,12 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+.footer-bottom a.built-by:hover,
+.footer-bottom a.built-by:focus,
+.footer-bottom a.built-by:active {
+  color: #FF4F11;
+  border-bottom-color: #FF4F11;
+}
 
 /* ━━━━━━━━━━━━━━━━━━━━ Breakpoints ━━━━━━━━━━━━━━━━━━━━ */
 
