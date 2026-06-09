@@ -521,7 +521,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   }
 }
 
-.brand {
+.brand-grid .brand {
   position: relative;
   flex: 0 0 var(--brand-cell);
   display: flex;
@@ -531,9 +531,9 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   color: var(--ink);
   transition: color .25s var(--ease), transform .35s var(--ease);
 }
-.brand:hover { color: var(--accent-deep); transform: translateY(-2px); }
+.brand-grid .brand:hover { color: var(--accent-deep); transform: translateY(-2px); }
 
-.brand-logo {
+.brand-grid .brand-logo {
   max-height: 48px;
   max-width: 100%;
   width: auto;
@@ -542,7 +542,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   display: block;
 }
 
-.brand-tag {
+.brand-grid .brand-tag {
   position: absolute;
   top: -6px;
   right: -2px;
