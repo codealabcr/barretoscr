@@ -631,6 +631,24 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   color: var(--accent);
 }
 
+/* Hero card (Botas — best-seller) hierarchy */
+.cat-card--lg .cat-body { padding: 30px 28px 32px; }
+.cat-card--lg .cat-body h3 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.cat-card--lg .cat-body p { max-width: 50ch; font-size: 15px; }
+.cat-card--lg .cat-badge {
+  position: absolute;
+  top: 14px; right: 16px;
+  font-family: var(--f-display);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━ Why ━━━━━━━━━━━━━━━━━━━━ */
 
 .why {
@@ -990,9 +1008,9 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   .t-grid { grid-template-columns: 1fr 1fr; }
   .t-card:first-child { grid-column: span 2; }
 
-  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
   .cat-card--lg { grid-column: span 2; }
-  .cat-card--lg img { aspect-ratio: 16 / 10; }
+  .cat-card--lg img { aspect-ratio: 16 / 9; }
 
   .lookbook-rail { grid-auto-columns: 48%; }
 
@@ -1019,13 +1037,11 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   .hero-media img { aspect-ratio: 4 / 5.4; }
 
   .cat-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
   }
-  .cat-card { grid-column: span 2; }
   .cat-card--lg { grid-column: span 3; }
-  .cat-card:nth-child(4) { grid-column: span 3; }
-  .cat-card:nth-child(5) { grid-column: span 3; }
+  .cat-card--lg img { aspect-ratio: 21 / 9; }
 
   .why-grid {
     grid-template-columns: repeat(3, 1fr);
