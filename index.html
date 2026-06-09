@@ -131,7 +131,7 @@
 
     <nav class="site-nav site-nav--right" aria-label="Navegación principal derecha">
       <ul>
-        <li><a href="#instagram">Galería</a></li>
+        <!-- <li><a href="#instagram">Galería</a></li> — oculto con el feed de IG -->
         <li><a href="#visitenos">Visítenos</a></li>
         <li><a href="#connect">Contacto</a></li>
       </ul>
@@ -145,7 +145,7 @@
       <li><a href="#categorias">Categorías</a></li>
       <li><a href="#marcas">Marcas</a></li>
       <li><a href="#por-que">Por qué Barretos</a></li>
-      <li><a href="#instagram">Galería</a></li>
+      <!-- <li><a href="#instagram">Galería</a></li> — oculto con el feed de IG -->
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#visitenos">Visítenos</a></li>
       <li><a href="#connect">Contacto</a></li>
@@ -478,40 +478,19 @@
     </div>
   </section>
 
-  <!-- ━━━━━━━━━━━━━━━━━━━━ INSTAGRAM LOOKBOOK ━━━━━━━━━━━━━━━━━━━━ -->
-  <section class="lookbook" id="instagram" aria-labelledby="ig-title">
-    <div class="container">
-      <header class="section-head section-head--split">
-        <div>
-          <h2 id="ig-title" class="display display--md">
-            En vivo desde<br>
-            <em>@barretoscr</em>
-          </h2>
-        </div>
-        <a class="btn btn--ghost" href="https://instagram.com/barretoscr" rel="noopener">Seguir en Instagram &rarr;</a>
-      </header>
+  <!-- ━━━━━━━━━━━━━━━━━━━━ INSTAGRAM LOOKBOOK (oculto temporalmente) ━━━━━━━━━━━━━━━━━━━━
 
-      <!--
-        TODO Galería placeholders (Unsplash hotlink).
-        Cuando integremos el feed real de @barretoscr (vía API o exportación manual),
-        cada <img> debe llevar alt descriptivo del post,
-        ej: alt="Cliente en tope de San Carlos con sombrero y botas Justin Boots".
-      -->
-      <div class="lookbook-rail" data-rail>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-        <article class="ig-card"><img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"></article>
-      </div>
+    La sección "En vivo desde @barretoscr" se removió porque todavía mostraba
+    placeholders de Unsplash, no el feed real. Para restaurarla tal cual estaba
+    (rail + 6 ig-card + controles + enlaces "Galería" en el nav), revertir el
+    commit que la ocultó:
 
-      <div class="rail-controls">
-        <button type="button" data-rail-prev aria-label="Anterior">&larr;</button>
-        <button type="button" data-rail-next aria-label="Siguiente">&rarr;</button>
-      </div>
-    </div>
-  </section>
+        git revert <hash de "ux: hide Instagram lookbook">
+
+    Cuando se integre el feed real de @barretoscr (API o exportación manual),
+    cada <img> debe llevar alt descriptivo del post. El CSS .lookbook / .ig-card
+    permanece en styles.css, listo para reusar.
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 
   <!-- ━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━ -->
   <section class="testimonials" id="testimonios" aria-labelledby="t-title">
