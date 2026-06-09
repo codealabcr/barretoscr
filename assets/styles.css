@@ -616,19 +616,6 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   .cat-img--alt { animation: none; }
 }
 
-.cat-num {
-  position: absolute;
-  top: 14px; left: 16px;
-  font-family: var(--f-display);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  color: var(--bg);
-  background: rgba(26,23,20,0.7);
-  padding: 5px 10px;
-  border-radius: 999px;
-  z-index: 2;
-}
-
 .cat-body {
   position: absolute; left: 0; right: 0; bottom: 0;
   padding: 22px 22px 24px;
