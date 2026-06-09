@@ -20,7 +20,6 @@
 
   --f-display: "Fraunces", "Times New Roman", serif;
   --f-body:    "Inter", system-ui, sans-serif;
-  --f-mono:    "DM Mono", ui-monospace, monospace;
 
   --container: 1280px;
   --gutter: clamp(20px, 5vw, 56px);
