@@ -187,14 +187,6 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   max-width: none;
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;
 }
-.section-num {
-  font-family: var(--f-display);
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  color: var(--ink-mute);
-  text-transform: uppercase;
-}
-.section-num--light { color: rgba(244,239,229,0.65); }
 .section-sub {
   font-size: 1.02rem;
   color: var(--ink-soft);
@@ -984,6 +976,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+.footer-bottom a.built-by { font-size: smaller; }
 .footer-bottom a.built-by:hover,
 .footer-bottom a.built-by:focus,
 .footer-bottom a.built-by:active {

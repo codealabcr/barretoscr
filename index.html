@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/styles.css?v=20260608b">
+<link rel="stylesheet" href="assets/styles.css?v=20260608c">
 
 <script type="application/ld+json">
 {
@@ -46,8 +46,25 @@
   "logo": "https://barretos.cr/assets/logo-illustrated-800.webp",
   "image": "https://barretos.cr/og.jpg",
   "description": "Tienda vaquera líder en Cartago, Costa Rica. Botas, sombreros, camisas, cinturones y accesorios western importados de marcas reconocidas a nivel mundial.",
-  "telephone": "+50688443180",
+  "telephone": "+50625520617",
   "email": "hola@barretos.cr",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+50625520617",
+      "contactType": "customer service",
+      "areaServed": "CR",
+      "availableLanguage": ["Spanish"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+50688443180",
+      "contactType": "sales",
+      "areaServed": "CR",
+      "availableLanguage": ["Spanish"],
+      "contactOption": "WhatsApp"
+    }
+  ],
   "priceRange": "$$",
   "currenciesAccepted": "CRC, USD",
   "address": {
@@ -99,7 +116,7 @@
       <ul>
         <li><a href="#categorias">Categorías</a></li>
         <li><a href="#marcas">Marcas</a></li>
-        <li><a href="#por-que">Por qué</a></li>
+        <li><a href="#por-que">Por qué Barretos</a></li>
       </ul>
     </nav>
 
@@ -111,8 +128,8 @@
     <nav class="site-nav site-nav--right" aria-label="Navegación principal derecha">
       <ul>
         <li><a href="#instagram">Lookbook</a></li>
-        <li><a href="#visitanos">Visítanos</a></li>
-        <li><a href="#conecta">Contacto</a></li>
+        <li><a href="#visitanos">Visítenos</a></li>
+        <li><a href="#connect">Contacto</a></li>
       </ul>
     </nav>
 
@@ -126,8 +143,8 @@
       <li><a href="#por-que">Por qué Barretos</a></li>
       <li><a href="#instagram">Lookbook</a></li>
       <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#visitanos">Visítanos</a></li>
-      <li><a href="#conecta">Contacto</a></li>
+      <li><a href="#visitanos">Visítenos</a></li>
+      <li><a href="#connect">Contacto</a></li>
     </ul>
   </div>
 </header>
@@ -164,7 +181,7 @@
             Consultar por WhatsApp
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M5 12h12.2l-4.6-4.6 1.4-1.4L21 12l-7 7-1.4-1.4 4.6-4.6H5z"/></svg>
           </a>
-          <a class="btn btn--ghost" href="#visitanos">Visitar la tienda</a>
+          <a class="btn btn--ghost" href="#visitanos">Visítenos en Cartago</a>
         </div>
 
         <dl class="hero-meta">
@@ -212,7 +229,6 @@
   <section class="brands" id="marcas" aria-labelledby="brands-title">
     <div class="container">
       <header class="section-head section-head--mini">
-        <span class="section-num">02</span>
         <h2 id="brands-title" class="kicker">Marcas que importamos</h2>
       </header>
       <ul class="brand-grid" role="list">
@@ -270,9 +286,8 @@
   <section class="categories" id="categorias" aria-labelledby="cat-title">
     <div class="container">
       <header class="section-head">
-        <span class="section-num">03</span>
         <h2 id="cat-title" class="display display--md">
-          Cinco categorías,<br>
+          Diez categorías,<br>
           <em>una sola</em> obsesión por el cuero.
         </h2>
         <p class="section-sub">
@@ -309,32 +324,32 @@
             <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Sombreros</h3>
-              <p>Fieltro, paja y modelos western clásicos para diario o eventos.</p>
+              <p>Stetson y modelos western en fieltro y paja para diario o eventos.</p>
               <span class="cat-link">Consultar &rarr;</span>
             </div>
           </a>
         </li>
 
         <li class="cat-card">
-          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20camisas" rel="noopener">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20ropa" rel="noopener">
             <span class="cat-num">03</span>
-            <!-- TODO alt: descripción SEO de la camisa destacada -->
+            <!-- TODO alt: descripción SEO de la prenda destacada -->
             <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
             <div class="cat-body">
-              <h3>Camisas</h3>
-              <p>Wrangler, Ariat y diseños exclusivos de manga larga.</p>
+              <h3>Ropa</h3>
+              <p>Wrangler, Ariat y Kimes Ranch. Camisas, jeans y básicos western.</p>
               <span class="cat-link">Consultar &rarr;</span>
             </div>
           </a>
         </li>
 
         <li class="cat-card">
-          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20cinturones" rel="noopener">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20fajas" rel="noopener">
             <span class="cat-num">04</span>
-            <!-- TODO alt: descripción SEO del cinturón destacado -->
+            <!-- TODO alt: descripción SEO de la faja destacada -->
             <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
             <div class="cat-body">
-              <h3>Cinturones</h3>
+              <h3>Fajas</h3>
               <p>Cuero genuino, hebillas western y piezas conmemorativas.</p>
               <span class="cat-link">Consultar &rarr;</span>
             </div>
@@ -342,13 +357,78 @@
         </li>
 
         <li class="cat-card">
-          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20accesorios" rel="noopener">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20billeteras" rel="noopener">
             <span class="cat-num">05</span>
+            <!-- TODO alt: descripción SEO de la billetera destacada -->
+            <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <div class="cat-body">
+              <h3>Billeteras</h3>
+              <p>Cuero artesanal con grabado tradicional vaquero.</p>
+              <span class="cat-link">Consultar &rarr;</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="cat-card">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20gorras" rel="noopener">
+            <span class="cat-num">06</span>
+            <!-- TODO alt: descripción SEO de la gorra destacada -->
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <div class="cat-body">
+              <h3>Gorras</h3>
+              <p>Trucker, snapback y Ranch &amp; Corral para uso diario.</p>
+              <span class="cat-link">Consultar &rarr;</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="cat-card">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20monturas" rel="noopener">
+            <span class="cat-num">07</span>
+            <!-- TODO alt: descripción SEO de la montura destacada -->
+            <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <div class="cat-body">
+              <h3>Monturas</h3>
+              <p>Sillas de montar para trabajo, rejoneo y paseo.</p>
+              <span class="cat-link">Consultar &rarr;</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="cat-card">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20mantillones" rel="noopener">
+            <span class="cat-num">08</span>
+            <!-- TODO alt: descripción SEO del mantillón destacado -->
+            <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <div class="cat-body">
+              <h3>Mantillones</h3>
+              <p>Bajo-silla en lana, fieltro y diseños navajo tradicionales.</p>
+              <span class="cat-link">Consultar &rarr;</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="cat-card">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20aperos" rel="noopener">
+            <span class="cat-num">09</span>
+            <!-- TODO alt: descripción SEO del apero destacado -->
+            <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
+            <div class="cat-body">
+              <h3>Aperos</h3>
+              <p>Bridas, cabezadas, estribos y arreos completos.</p>
+              <span class="cat-link">Consultar &rarr;</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="cat-card">
+          <a href="https://wa.me/50688443180?text=Hola%20Barretos%2C%20quiero%20ver%20accesorios" rel="noopener">
+            <span class="cat-num">10</span>
             <!-- TODO alt: descripción SEO del accesorio destacado -->
             <img src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" width="800" height="800">
             <div class="cat-body">
               <h3>Accesorios</h3>
-              <p>Carteras, llaveros, pañuelos y artículos de talabartería.</p>
+              <p>Pañuelos, llaveros y piezas de talabartería de origen.</p>
               <span class="cat-link">Consultar &rarr;</span>
             </div>
           </a>
@@ -361,7 +441,6 @@
   <section class="why" id="por-que" aria-labelledby="why-title">
     <div class="container">
       <header class="section-head section-head--center">
-        <span class="section-num section-num--light">04</span>
         <h2 id="why-title" class="display display--md display--light">
           ¿Por qué <em>Barretos</em>?
         </h2>
@@ -398,7 +477,6 @@
     <div class="container">
       <header class="section-head section-head--split">
         <div>
-          <span class="section-num">05</span>
           <h2 id="ig-title" class="display display--md">
             En vivo desde<br>
             <em>@barretoscr</em>
@@ -433,9 +511,8 @@
   <section class="testimonials" id="testimonios" aria-labelledby="t-title">
     <div class="container">
       <header class="section-head">
-        <span class="section-num">06</span>
         <h2 id="t-title" class="display display--md">
-          Lo que <em>dice</em> nuestra gente.
+          Lo que <em>dicen</em> nuestros clientes.
         </h2>
       </header>
 
@@ -477,7 +554,6 @@
   <section class="visit" id="visitanos" aria-labelledby="visit-title">
     <div class="container visit-grid">
       <div class="visit-copy">
-        <span class="section-num">07</span>
         <h2 id="visit-title" class="display display--md">
           Visítenos en<br>
           <em>Cartago.</em>
@@ -493,8 +569,12 @@
             <dd>Lun – Vie · 8:00 a.m. – 5:00 p.m.<br>Sáb · 9:00 a.m. – 4:00 p.m.<br>Dom · cerrado</dd>
           </div>
           <div>
-            <dt>Teléfono</dt>
-            <dd><a href="tel:+50688443180">+506 8844&nbsp;3180</a></dd>
+            <dt>Llamar</dt>
+            <dd><a href="tel:+50625520617">+506 2552-0617</a></dd>
+          </div>
+          <div>
+            <dt>WhatsApp</dt>
+            <dd><a href="https://wa.me/50688443180" rel="noopener">+506 8844&nbsp;3180</a></dd>
           </div>
         </dl>
 
@@ -519,7 +599,7 @@
   </section>
 
   <!-- ━━━━━━━━━━━━━━━━━━━━ CONECTA / NEWSLETTER ━━━━━━━━━━━━━━━━━━━━ -->
-  <section class="connect" aria-labelledby="connect-title">
+  <section class="connect" id="connect" aria-labelledby="connect-title">
     <div class="container connect-inner">
       <p class="eyebrow eyebrow--light"><span class="rule"></span>Síganos la pista</p>
       <h2 id="connect-title" class="display display--lg display--light">
@@ -579,13 +659,14 @@
         <li><a href="#categorias">Categorías</a></li>
         <li><a href="#marcas">Marcas</a></li>
         <li><a href="#por-que">Por qué Barretos</a></li>
-        <li><a href="#visitanos">Visítanos</a></li>
+        <li><a href="#visitanos">Visítenos</a></li>
       </ul>
     </nav>
 
     <div class="footer-nav">
       <h3>Contacto</h3>
       <ul>
+        <li><a href="tel:+50625520617">Llamar +506 2552-0617</a></li>
         <li><a href="https://wa.me/50688443180" rel="noopener">WhatsApp</a></li>
         <li><a href="https://instagram.com/barretoscr" rel="noopener">Instagram</a></li>
         <li><a href="https://tiktok.com/@barretoscr" rel="noopener">TikTok</a></li>
