@@ -11,7 +11,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Repo**: https://github.com/codealabcr/barretoscr
 - **Owner of the business**: Client (not Codealab). Codealab built and maintains the site.
 - **Primary conversion**: WhatsApp click (`wa.me/50688443180`). The site has no e-commerce, no forms, no checkout — every CTA funnels to WhatsApp.
-- **Phone of record**: `+506 8844 3180` (E.164 in code).
+- **WhatsApp**: `+506 8844 3180` (E.164: `50688443180`)
+- **Llamadas (voz)**: `+506 4036-6870` (E.164: `50640366870`) — aparece en JSON-LD `telephone`, sección Visítenos y pie de página.
 
 ## Workflow
 
