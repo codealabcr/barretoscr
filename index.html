@@ -460,6 +460,10 @@
 
         git revert <hash de "ux: hide Instagram lookbook">
 
+    Luego re-agregar manualmente en privacidad/index.html el ítem "Galería" en
+    el nav desktop (site-nav--right) y en el mobile-nav:
+        <li><a href="../#instagram">Galería</a></li>
+
     Cuando se integre el feed real de @barretoscr (API o exportación manual),
     cada <img> debe llevar alt descriptivo del post. El CSS .lookbook / .ig-card
     permanece en styles.css, listo para reusar.
