@@ -52,15 +52,6 @@
     );
   }
 
-  const rail = document.querySelector("[data-rail]");
-  const prev = document.querySelector("[data-rail-prev]");
-  const next = document.querySelector("[data-rail-next]");
-  if (rail && prev && next) {
-    const step = () => Math.round(rail.clientWidth * 0.6);
-    prev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
-    next.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
-  }
-
   const header = document.querySelector("[data-header]");
   if (header) {
     window.addEventListener("scroll", () => {
