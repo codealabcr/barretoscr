@@ -10,7 +10,7 @@
   --ink-soft:  #2A2520;
   --ink-mute:  #6F655A;
   --accent:    #E0A11C;
-  --accent-deep: #B5811A;
+  --accent-deep: #9A6C12;
   --tabaco:    #4A2E1A;
   --miel:      #A06A38;
   --whatsapp:  #25D366;
@@ -281,7 +281,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   height: 60px;
   border-radius: 50%;
   background: var(--whatsapp);
-  color: #fff;
+  color: var(--ink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -487,7 +487,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
   position: absolute;
   top: -6px;
   right: -2px;
-  color: var(--accent);
+  color: var(--tabaco);
   font-size: 14px;
   letter-spacing: 0;
 }
