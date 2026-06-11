@@ -32,6 +32,6 @@ build/
 .env.local
 .env.*.local
 
-# Zips crudos de fotos del cliente (intake pesado, no versionar)
-# Las selecciones curadas sí se versionan en docs/.../selects/
-docs/client-photos/productos/*.zip
+# Fotos del cliente (intake crudo y curado) — no versionar.
+# Los assets que el sitio sirve viven en assets/, no aquí.
+docs/client-photos/
