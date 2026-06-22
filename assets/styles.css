@@ -711,6 +711,18 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 .t-card--accent figcaption { border-top-color: rgba(244,239,229,0.18); }
 .t-card--accent figcaption span { color: rgba(244,239,229,0.55); }
 
+/* ━━━━━━━━━━━━━━━━━━━━ Instagram feed (Elfsight) ━━━━━━━━━━━━━━━━━━━━ */
+
+.ig-feed { padding-block: clamp(72px, 10vw, 130px); }
+.ig-feed h2 a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--accent);
+  transition: color .2s ease;
+}
+.ig-feed h2 a:hover { color: var(--miel); }
+
 /* ━━━━━━━━━━━━━━━━━━━━ Visit / map ━━━━━━━━━━━━━━━━━━━━ */
 
 .visit { padding-block: clamp(80px, 11vw, 140px); }

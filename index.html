@@ -44,7 +44,7 @@
       rel="stylesheet">
   </noscript>
 
-  <link rel="stylesheet" href="assets/styles.css?v=20260610">
+  <link rel="stylesheet" href="assets/styles.css?v=20260622">
 
   <script type="application/ld+json">
 {
@@ -143,7 +143,7 @@
 
       <nav class="site-nav site-nav--right" aria-label="Navegación principal derecha">
         <ul>
-          <!-- <li><a href="#instagram">Galería</a></li> — oculto con el feed de IG -->
+          <li><a href="#instagram">Galería</a></li>
           <li><a href="#visitenos">Visítenos</a></li>
           <li><a href="#connect">Contacto</a></li>
         </ul>
@@ -157,7 +157,7 @@
         <li><a href="#categorias">Categorías</a></li>
         <li><a href="#marcas">Marcas</a></li>
         <li><a href="#por-que">Por qué Barretos</a></li>
-        <!-- <li><a href="#instagram">Galería</a></li> — oculto con el feed de IG -->
+        <li><a href="#instagram">Galería</a></li>
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#visitenos">Visítenos</a></li>
         <li><a href="#connect">Contacto</a></li>
@@ -504,23 +504,24 @@
       </div>
     </section>
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━ INSTAGRAM LOOKBOOK (oculto temporalmente) ━━━━━━━━━━━━━━━━━━━━
+    <!-- ━━━━━━━━━━━━━━━━━━━━ INSTAGRAM ━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="ig-feed" id="instagram" aria-labelledby="ig-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="ig-title" class="display display--md">
+            En vivo <em>desde</em>
+            <a href="https://instagram.com/barretoscr" rel="noopener">@barretoscr</a>.
+          </h2>
+          <p class="section-sub">
+            Lo último que llegó a la tienda, directo de nuestro Instagram.
+            Síganos para ver novedades, tallas y promos antes que nadie.
+          </p>
+        </header>
 
-    La sección "En vivo desde @barretoscr" se removió porque todavía mostraba
-    placeholders de Unsplash, no el feed real. Para restaurarla tal cual estaba
-    (rail + 6 ig-card + controles + enlaces "Galería" en el nav), revertir el
-    commit que la ocultó:
-
-        git revert <hash de "ux: hide Instagram lookbook">
-
-    Luego re-agregar manualmente en privacidad/index.html el ítem "Galería" en
-    el nav desktop (site-nav--right) y en el mobile-nav:
-        <li><a href="../#instagram">Galería</a></li>
-
-    Cuando se integre el feed real de @barretoscr (API o exportación manual),
-    cada <img> debe llevar alt descriptivo del post. El CSS .lookbook / .ig-card
-    fue removido en fix/codex-review — añadir nuevamente al restaurar.
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+        <!-- Elfsight Instagram Feed — widget de terceros, render diferido (lazy) -->
+        <div class="elfsight-app-41efe69b-79df-4a19-b381-d80f578876e3" data-elfsight-app-lazy></div>
+      </div>
+    </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━ TESTIMONIOS ━━━━━━━━━━━━━━━━━━━━ -->
     <section class="testimonials" id="testimonios" aria-labelledby="t-title">
@@ -705,6 +706,9 @@
       <small><a href="privacidad/">Política de privacidad</a></small>
     </div>
   </footer>
+
+  <!-- Elfsight Instagram Feed — plataforma de terceros (carga async, widget lazy) -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
 
   <script src="assets/script.js" defer></script>
 
