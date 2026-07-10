@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F4EFE5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17120E" media="(prefers-color-scheme: dark)">
+<title>Reporte + Plan de Acción · Barretos Western Store</title>
+<meta name="description" content="Reporte de performance de barretos.cr (Google Analytics + Search Console) desde el lanzamiento, con plan de acción para SEO y medición de WhatsApp.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #F4EFE5;
+    --surface: #FBF8F1;
+    --surface-2: #F0E8D8;
+    --ink: #1A1714;
+    --ink-soft: #5E5346;
+    --line: #E3D9C6;
+    --accent: #C6820E;
+    --accent-bright: #E0A11C;
+    --tabaco: #4A2E1A;
+    --miel: #A06A38;
+    --whatsapp: #199E52;
+    --good: #4F7A3A;
+    --shadow: 0 1px 2px rgba(26,23,20,.06), 0 8px 24px rgba(26,23,20,.05);
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", "DM Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17120E; --surface: #211A14; --surface-2: #2A211A; --ink: #F1EADD;
+      --ink-soft: #B3A48F; --line: #382C22; --accent: #E9B23C; --accent-bright: #F0BE4E;
+      --tabaco: #E9B23C; --miel: #C68C52; --whatsapp: #35C46E; --good: #7FB05E;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F4EFE5; --surface: #FBF8F1; --surface-2: #F0E8D8; --ink: #1A1714;
+    --ink-soft: #5E5346; --line: #E3D9C6; --accent: #C6820E; --accent-bright: #E0A11C;
+    --tabaco: #4A2E1A; --miel: #A06A38; --whatsapp: #199E52; --good: #4F7A3A;
+    --shadow: 0 1px 2px rgba(26,23,20,.06), 0 8px 24px rgba(26,23,20,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg: #17120E; --surface: #211A14; --surface-2: #2A211A; --ink: #F1EADD;
+    --ink-soft: #B3A48F; --line: #382C22; --accent: #E9B23C; --accent-bright: #F0BE4E;
+    --tabaco: #E9B23C; --miel: #C68C52; --whatsapp: #35C46E; --good: #7FB05E;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; font-feature-settings: "kern";
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px 96px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--miel); margin: 0 0 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); display: inline-block; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; text-wrap: balance; letter-spacing: -.01em; }
+  .num { font-variant-numeric: tabular-nums; font-family: var(--mono); }
+  a { color: var(--accent); }
+
+  /* ---------- Masthead ---------- */
+  header.mast { padding: 56px 0 40px; border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+  .mast-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px 20px; margin-bottom: 34px; }
+  .brand { font-family: var(--serif); font-style: italic; font-size: 20px; font-weight: 600; letter-spacing: .01em; }
+  .brand b { font-style: normal; color: var(--accent); }
+  .brand-logo { display: block; width: 58px; height: 58px; background-color: var(--ink); -webkit-mask: url("assets/logo.svg") no-repeat center / contain; mask: url("assets/logo.svg") no-repeat center / contain; }
+  @media (max-width: 760px) { .brand-logo { width: 46px; height: 46px; } }
+  .mast-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: .04em; }
+  header.mast h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.02; margin: 0 0 18px; }
+  header.mast .lede { font-size: 18px; color: var(--ink-soft); max-width: 60ch; margin: 0; }
+  .period {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 24px;
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: .03em;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 15px; color: var(--ink);
+  }
+  .period .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+
+  /* ---------- KPI band ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  .kpi { background: var(--surface); padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 3px; }
+  .kpi .k-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .kpi .k-val { font-family: var(--serif); font-size: 40px; font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .kpi .k-val small { font-size: 20px; color: var(--ink-soft); font-family: var(--serif); }
+  .kpi .k-sub { font-size: 12.5px; color: var(--ink-soft); }
+  .kpi.hero-kpi { background: #3E2817; }
+  .kpi.hero-kpi .k-label { color: rgba(244,239,229,.72); }
+  .kpi.hero-kpi .k-val { color: var(--accent-bright); }
+  .kpi.hero-kpi .k-sub { color: #F4EFE5; }
+  .kpi.hero-kpi .k-val small { color: rgba(244,239,229,.7); }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 60px; }
+  section > h2 { font-size: clamp(24px, 3.4vw, 32px); margin: 0 0 8px; }
+  section > .sec-intro { color: var(--ink-soft); max-width: 66ch; margin: 0 0 28px; font-size: 15.5px; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  .grid-2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: start; }
+
+  .bars { display: flex; flex-direction: column; gap: 14px; padding: 26px 26px 28px; }
+  .bar-row { display: grid; grid-template-columns: 168px 1fr auto; align-items: center; gap: 16px; }
+  .bar-row .b-name { font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 9px; }
+  .bar-row .b-name .swatch { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+  .bar-row .b-name .sub { color: var(--ink-soft); font-family: var(--mono); font-size: 11px; font-weight: 400; }
+  .track { height: 12px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--miel), var(--accent-bright)); }
+  .fill.wa { background: linear-gradient(90deg, #147a41, var(--whatsapp)); }
+  .b-val { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; min-width: 42px; text-align: right; }
+  .b-val .vsub { display:block; font-size: 10.5px; color: var(--ink-soft); font-weight: 400; }
+
+  .calls { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .call { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; }
+  .call h3 { margin: 0 0 6px; font-size: 16px; }
+  .call p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+  .call .big { font-family: var(--serif); font-size: 15px; color: var(--ink); }
+
+  table.ch { width: 100%; border-collapse: collapse; }
+  table.ch th, table.ch td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  table.ch thead th { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  table.ch td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+  table.ch tr:last-child td { border-bottom: none; }
+  .minibar { height: 7px; border-radius: 999px; background: var(--surface-2); margin-top: 5px; overflow:hidden; }
+  .minibar > span { display:block; height:100%; border-radius:999px; }
+  .mb-u > span { background: var(--miel); }
+  .mb-l > span { background: var(--accent-bright); }
+  .cell-metric { display:flex; flex-direction:column; gap:0; min-width: 116px; }
+  .cell-metric .cm-top { display:flex; justify-content:space-between; font-family:var(--mono); font-size:12.5px; }
+
+  .search-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 22px; align-items: start; }
+  table.q { width: 100%; border-collapse: collapse; }
+  table.q th, table.q td { padding: 11px 18px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+  table.q thead th { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  table.q td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+  table.q .qterm { font-weight: 500; }
+  table.q .brand-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing:.06em; text-transform: uppercase; color: var(--tabaco); background: var(--surface-2); border-radius: 4px; padding: 1px 6px; margin-left: 8px; }
+  :root[data-theme="dark"] table.q .brand-tag { color: var(--bg); }
+
+  .stat-stack { display:flex; flex-direction: column; gap: 1px; background: var(--line); border:1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .stat-stack .s-item { background: var(--surface); padding: 16px 20px; display:flex; justify-content: space-between; align-items: baseline; }
+  .stat-stack .s-item .s-l { font-size: 13.5px; color: var(--ink-soft); }
+  .stat-stack .s-item .s-v { font-family: var(--serif); font-size: 26px; font-weight:600; font-variant-numeric: tabular-nums; }
+
+  .device-row { display:flex; align-items:center; gap: 14px; padding: 10px 0; }
+  .device-row .d-name { width: 92px; font-size: 13.5px; }
+  .device-row .d-track { flex:1; height: 10px; background: var(--surface-2); border-radius:999px; overflow:hidden; }
+  .device-row .d-track > span { display:block; height:100%; background: linear-gradient(90deg,var(--miel),var(--accent-bright)); border-radius:999px; }
+  .device-row .d-val { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; width: 96px; text-align:right; color: var(--ink-soft); }
+  .device-row .d-val b { color: var(--ink); }
+
+  .pad { padding: 26px; }
+  .split-head { display:flex; justify-content: space-between; align-items:baseline; margin-bottom: 4px; }
+  .split-head .sh-note { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); }
+
+  /* ---------- PLAYBOOK ---------- */
+  .plays { display: flex; flex-direction: column; gap: 24px; }
+  .play { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .play-head { display: flex; gap: 18px; align-items: flex-start; padding: 26px 28px 20px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+  .play-badge { flex: none; width: 42px; height: 42px; border-radius: 11px; background: var(--tabaco); color: #F4EFE5; display: grid; place-items: center; font-family: var(--serif); font-size: 22px; font-weight: 600; }
+  :root[data-theme="dark"] .play-badge { color: #17120E; }
+  .play-head .ph-text h3 { margin: 0 0 3px; font-size: 21px; }
+  .play-head .ph-text .ph-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--miel); }
+  .play-head .effort { margin-left: auto; text-align: right; font-family: var(--mono); font-size: 10.5px; letter-spacing:.05em; color: var(--ink-soft); line-height: 1.7; flex: none; }
+  .play-head .effort b { color: var(--good); }
+  summary.play-head { cursor: pointer; list-style: none; user-select: none; }
+  summary.play-head::-webkit-details-marker { display: none; }
+  .play-head::after { content: "⌄"; flex: none; align-self: center; margin-left: 14px; font-size: 20px; line-height: 1; color: var(--miel); transition: transform .2s ease; }
+  details.play[open] .play-head::after { transform: rotate(180deg); }
+  details.play:not([open]) .play-head { border-bottom: none; }
+  summary.play-head:hover { background: var(--surface); }
+  .play-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 20px; }
+
+  .pn { display: grid; grid-template-columns: 84px 1fr; gap: 4px 14px; align-items: baseline; }
+  .pn .pn-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; padding-top: 3px; }
+  .pn.prob .pn-k { color: #B4552E; }
+  .pn.sol .pn-k { color: var(--good); }
+  .pn p { margin: 0; font-size: 14.5px; }
+  :root[data-theme="dark"] .pn.prob .pn-k { color: #E08A5E; }
+
+  .sitemap { font-family: var(--mono); font-size: 12.5px; line-height: 1.85; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; overflow-x: auto; white-space: pre; color: var(--ink); }
+  .sitemap .u { color: var(--accent); }
+  .sitemap .kw { color: var(--ink-soft); }
+  .sitemap .excl { color: var(--good); font-weight: 600; }
+
+  .checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 22px; }
+  .checklist li { position: relative; padding-left: 26px; font-size: 13.8px; color: var(--ink); }
+  .checklist li::before { content: "✓"; position: absolute; left: 0; top: -1px; width: 17px; height: 17px; border-radius: 5px; background: var(--surface-2); color: var(--accent); font-size: 11px; font-weight: 700; display: grid; place-items: center; border: 1px solid var(--line); }
+
+  .block-label { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin: 4px 0 10px; }
+
+  /* funnel */
+  .funnel { display: flex; align-items: stretch; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .funnel .stage { flex: 1 1 0; min-width: 118px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 13px 14px; }
+  .funnel .stage .st-l { font-size: 12px; color: var(--ink-soft); display: block; }
+  .funnel .stage .st-v { font-family: var(--serif); font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .funnel .stage .st-v small { font-size: 12px; color: var(--ink-soft); font-family: var(--mono); }
+  .funnel .stage.known { border-color: var(--accent); }
+  .funnel .stage.gap { border-style: dashed; }
+  .funnel .arrow { align-self: center; color: var(--miel); font-size: 18px; flex: none; }
+
+  /* ladder */
+  .ladder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .rung { background: var(--surface); padding: 18px 20px; }
+  .rung .r-tier { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
+  .rung h4 { margin: 0 0 6px; font-size: 15px; }
+  .rung p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+
+  /* do-now */
+  .do-now { background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--good); border-radius: 10px; padding: 18px 22px; }
+  .do-now .dn-label { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--good); display: block; margin-bottom: 10px; }
+  .steps { margin: 0; padding-left: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 8px; }
+  .steps li { counter-increment: s; position: relative; padding-left: 32px; font-size: 14px; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: -1px; width: 21px; height: 21px; border-radius: 50%; background: var(--tabaco); color: #F4EFE5; font-family: var(--mono); font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+  :root[data-theme="dark"] .steps li::before { color: #17120E; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mini-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .mini-card .mc-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); display:block; margin-bottom: 7px; }
+  .mini-card h3 { margin: 0 0 6px; font-size: 16.5px; }
+  .mini-card p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  .notes { margin-top: 40px; padding: 22px 24px; background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; }
+  .notes h3 { margin:0 0 10px; font-size: 13px; font-family: var(--mono); letter-spacing:.08em; text-transform:uppercase; color: var(--ink-soft); font-weight: 600; }
+  .notes ul { margin:0; padding-left: 18px; }
+  .notes li { font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; }
+
+  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); letter-spacing:.03em; }
+
+  @media (max-width: 760px) {
+    .kpis { grid-template-columns: repeat(2,1fr); }
+    .grid-2, .search-grid, .calls, .ladder, .checklist, .two-col { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 120px 1fr auto; gap: 10px; }
+    .bar-row .b-name .sub { display:none; }
+    .table-scroll { overflow-x: auto; }
+    .play-head { flex-wrap: wrap; }
+    .play-head .effort { margin-left: 0; text-align: left; width: 100%; }
+    .pn { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div class="brand"><span class="brand-logo" role="img" aria-label="Barretos Western Store"></span></div>
+      <div class="mast-meta">Reporte + plan · Codealab</div>
+    </div>
+    <p class="eyebrow">Performance del sitio · barretos.cr</p>
+    <h1>Primer mes en línea: qué pasó y qué sigue.</h1>
+    <p class="lede">Un resumen de tráfico, leads y visibilidad en Google desde el lanzamiento — y un plan de acción concreto para apuntar a nuevos keywords y medir el cierre de WhatsApp.</p>
+    <span class="period"><span class="dot"></span>8 jun – 10 jul 2026 · 32 días desde el lanzamiento</span>
+  </header>
+
+  <!-- KPI band -->
+  <div class="kpis">
+    <div class="kpi hero-kpi"><span class="k-label">Clics a WhatsApp</span><span class="k-val">129</span><span class="k-sub">de 85 personas · el lead principal</span></div>
+    <div class="kpi"><span class="k-label">Usuarios</span><span class="k-val">178</span><span class="k-sub">179 nuevos · 19 recurrentes</span></div>
+    <div class="kpi"><span class="k-label">Sesiones</span><span class="k-val">260</span><span class="k-sub">58.9% con interacción real</span></div>
+    <div class="kpi"><span class="k-label">Tiempo de interacción</span><span class="k-val">57<small>s</small></span><span class="k-sub">por usuario activo</span></div>
+    <div class="kpi"><span class="k-label">Clics desde Google</span><span class="k-val">60</span><span class="k-sub">903 impresiones · CTR 6.6%</span></div>
+    <div class="kpi"><span class="k-label">Posición media en Google</span><span class="k-val">5.1</span><span class="k-sub">primera página desde el mes 1</span></div>
+  </div>
+
+  <!-- Executive summary -->
+  <section>
+    <p class="eyebrow">Lo esencial</p>
+    <h2>Qué está funcionando</h2>
+    <p class="sec-intro">El sitio no vende en línea: su único trabajo es convertir la visita en una conversación de WhatsApp, y lo está haciendo bien.</p>
+    <div class="calls">
+      <div class="call"><h3>Casi 1 de cada 2 visitantes escribió</h3><p><span class="big">85 de 178 personas (47.8%)</span> hicieron clic en WhatsApp. Una tasa de contacto altísima para una landing.</p></div>
+      <div class="call"><h3>Google ya trae clientes</h3><p>La <span class="big">búsqueda orgánica</span> es el 33% de los usuarios pero casi la <span class="big">mitad de los leads</span> — el tráfico que más convierte.</p></div>
+      <div class="call"><h3>Audiencia mobile y local</h3><p><span class="big">83%</span> de los clics de búsqueda son desde el celular; San José y Cartago concentran el público.</p></div>
+      <div class="call"><h3>Aparece un canal nuevo: la IA</h3><p>Asistentes de IA trajeron <span class="big">10 usuarios que generaron 17 leads</span> — rinde por encima de su tamaño.</p></div>
+    </div>
+  </section>
+
+  <!-- LEADS -->
+  <section>
+    <p class="eyebrow">Generación de leads</p>
+    <h2>Los eventos que generaron contactos</h2>
+    <p class="sec-intro">Cada botón dispara un evento medible. Estos son los que representan un lead — alguien buscando contacto o cómo llegar. WhatsApp domina; el resto son vías secundarias.</p>
+    <div class="card bars">
+      <div class="bar-row"><div class="b-name"><span class="swatch" style="background:var(--whatsapp)"></span>WhatsApp <span class="sub">whatsapp_click</span></div><div class="track"><div class="fill wa" style="width:100%"></div></div><div class="b-val">129<span class="vsub">85 personas</span></div></div>
+      <div class="bar-row"><div class="b-name"><span class="swatch" style="background:var(--accent-bright)"></span>Redes sociales <span class="sub">social_click</span></div><div class="track"><div class="fill" style="width:17%"></div></div><div class="b-val">22<span class="vsub">9 personas</span></div></div>
+      <div class="bar-row"><div class="b-name"><span class="swatch" style="background:var(--miel)"></span>Cómo llegar <span class="sub">Waze / Maps</span></div><div class="track"><div class="fill" style="width:2.4%"></div></div><div class="b-val">3<span class="vsub">2 personas</span></div></div>
+      <div class="bar-row"><div class="b-name"><span class="swatch" style="background:var(--tabaco)"></span>Llamada <span class="sub">phone_click</span></div><div class="track"><div class="fill" style="width:2.4%"></div></div><div class="b-val">3<span class="vsub">3 personas</span></div></div>
+      <div class="bar-row"><div class="b-name"><span class="swatch" style="background:var(--ink-soft)"></span>Email <span class="sub">email_click</span></div><div class="track"><div class="fill" style="width:1.6%"></div></div><div class="b-val">2<span class="vsub">1 persona</span></div></div>
+    </div>
+    <p class="sec-intro" style="margin-top:22px;">En total, <strong>134 acciones de contacto directo</strong> (WhatsApp + llamada + email) y 3 solicitudes de ruta al local. GA4 registró <strong>86 key events</strong> en el período. Un clic a WhatsApp mide intención, no una venta cerrada — ahí entra la Jugada 2.</p>
+  </section>
+
+  <!-- CHANNELS -->
+  <section>
+    <p class="eyebrow">Adquisición</p>
+    <h2>De dónde llegan — y quién convierte</h2>
+    <p class="sec-intro">Qué porción de la audiencia aporta cada canal frente a qué porción de los leads genera. Búsqueda orgánica y la IA convierten muy por encima de su peso.</p>
+    <div class="card table-scroll">
+      <table class="ch">
+        <thead><tr><th>Canal</th><th style="width:190px;">Usuarios</th><th style="width:190px;">Leads (key events)</th><th class="n">Lectura</th></tr></thead>
+        <tbody>
+          <tr><td>Búsqueda orgánica</td><td><div class="cell-metric"><div class="cm-top"><span>59</span><span>33%</span></div><div class="minibar mb-u"><span style="width:64%"></span></div></div></td><td><div class="cell-metric"><div class="cm-top"><span>41</span><span>48%</span></div><div class="minibar mb-l"><span style="width:100%"></span></div></div></td><td class="n" style="color:var(--good);font-weight:600;">▲ convierte más</td></tr>
+          <tr><td>Directo</td><td><div class="cell-metric"><div class="cm-top"><span>92</span><span>52%</span></div><div class="minibar mb-u"><span style="width:100%"></span></div></div></td><td><div class="cell-metric"><div class="cm-top"><span>12</span><span>14%</span></div><div class="minibar mb-l"><span style="width:29%"></span></div></div></td><td class="n" style="color:var(--ink-soft);">volumen, menor cierre</td></tr>
+          <tr><td>Asistente de IA</td><td><div class="cell-metric"><div class="cm-top"><span>10</span><span>6%</span></div><div class="minibar mb-u"><span style="width:11%"></span></div></div></td><td><div class="cell-metric"><div class="cm-top"><span>17</span><span>20%</span></div><div class="minibar mb-l"><span style="width:41%"></span></div></div></td><td class="n" style="color:var(--good);font-weight:600;">▲ canal emergente</td></tr>
+          <tr><td>Redes sociales</td><td><div class="cell-metric"><div class="cm-top"><span>17</span><span>10%</span></div><div class="minibar mb-u"><span style="width:18%"></span></div></div></td><td><div class="cell-metric"><div class="cm-top"><span>15</span><span>17%</span></div><div class="minibar mb-l"><span style="width:37%"></span></div></div></td><td class="n" style="color:var(--good);">rinde bien</td></tr>
+          <tr><td>Sin asignar</td><td><div class="cell-metric"><div class="cm-top"><span>1</span><span>1%</span></div><div class="minibar mb-u"><span style="width:2%"></span></div></div></td><td><div class="cell-metric"><div class="cm-top"><span>1</span><span>1%</span></div><div class="minibar mb-l"><span style="width:2%"></span></div></div></td><td class="n" style="color:var(--ink-soft);">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section>
+    <p class="eyebrow">Visibilidad en Google · Search Console</p>
+    <h2>Qué se busca para encontrarlos</h2>
+    <p class="sec-intro">El sitio ya rankea en primera página. Las búsquedas se dividen entre términos de marca y términos genéricos de categoría — estos últimos son la oportunidad de crecimiento (ver Jugada 1).</p>
+    <div class="search-grid">
+      <div class="card table-scroll">
+        <table class="q">
+          <thead><tr><th>Búsqueda</th><th class="n">Clics</th><th class="n">Impres.</th></tr></thead>
+          <tbody>
+            <tr><td class="qterm">barretos cartago <span class="brand-tag">marca</span></td><td class="n">9</td><td class="n">74</td></tr>
+            <tr><td class="qterm">barretos western <span class="brand-tag">marca</span></td><td class="n">6</td><td class="n">47</td></tr>
+            <tr><td class="qterm">tienda vaquera <span class="brand-tag" style="background:transparent;border:1px solid var(--line);color:var(--miel)">categoría</span></td><td class="n">2</td><td class="n">22</td></tr>
+            <tr><td class="qterm">barretos <span class="brand-tag">marca</span></td><td class="n">1</td><td class="n">46</td></tr>
+            <tr><td class="qterm">tienda vaquera cartago <span class="brand-tag" style="background:transparent;border:1px solid var(--line);color:var(--miel)">categoría</span></td><td class="n">1</td><td class="n">33</td></tr>
+            <tr><td class="qterm">tiendas vaqueras en cartago <span class="brand-tag" style="background:transparent;border:1px solid var(--line);color:var(--miel)">categoría</span></td><td class="n">1</td><td class="n">25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div class="stat-stack">
+          <div class="s-item"><span class="s-l">Clics totales</span><span class="s-v">60</span></div>
+          <div class="s-item"><span class="s-l">Impresiones</span><span class="s-v">903</span></div>
+          <div class="s-item"><span class="s-l">CTR promedio</span><span class="s-v">6.6%</span></div>
+          <div class="s-item"><span class="s-l">Posición media</span><span class="s-v">5.1</span></div>
+        </div>
+        <div class="card pad">
+          <div class="split-head"><h3 style="font-size:15px;margin:0;">Dispositivo</h3><span class="sh-note">clics de búsqueda</span></div>
+          <div class="device-row"><span class="d-name">Móvil</span><span class="d-track"><span style="width:100%"></span></span><span class="d-val"><b>50</b> · 799 impr</span></div>
+          <div class="device-row"><span class="d-name">Escritorio</span><span class="d-track"><span style="width:20%"></span></span><span class="d-val"><b>10</b> · 103 impr</span></div>
+          <div class="device-row"><span class="d-name">Tablet</span><span class="d-track"><span style="width:1%"></span></span><span class="d-val"><b>0</b> · 1 impr</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PLAN DE ACCIÓN ══════════ -->
+  <section>
+    <p class="eyebrow">Plan de acción</p>
+    <h2>De los datos a las próximas jugadas</h2>
+    <p class="sec-intro">Tres frentes, en orden de impacto. El primero amplía el alcance en Google; el segundo convierte los clics en ventas medibles; el tercero sostiene lo que ya rinde.</p>
+
+    <div class="plays">
+
+      <!-- JUGADA 1 -->
+      <details class="play">
+        <summary class="play-head">
+          <div class="play-badge">1</div>
+          <div class="ph-text">
+            <span class="ph-tag">SEO · arquitectura de contenido</span>
+            <h3>Nuevos keywords: una página por intención de búsqueda</h3>
+          </div>
+          <div class="effort">Esfuerzo <b>medio</b><br>Impacto <b>alto</b></div>
+        </summary>
+        <div class="play-body">
+          <div class="pn prob"><span class="pn-k">Problema</span><p>Google posiciona <strong>páginas, no sitios</strong>. Hoy <span class="num">barretos.cr</span> es una sola landing, así que compite por todo con una única URL. Términos como <em>"tienda vaquera cartago"</em> ya reciben impresiones pero pocos clics: no hay una página dedicada que Google pueda mostrar para esa búsqueda exacta.</p></div>
+          <div class="pn sol"><span class="pn-k">Solución</span><p>Crear páginas dedicadas por <strong>categoría</strong> y por <strong>marca</strong>, cada una apuntando a un grupo de keywords con demanda ya comprobada en Search Console. Sí: se necesitan más páginas — es exactamente lo que falta para capturar esas búsquedas.</p></div>
+
+          <div>
+            <p class="block-label">Estructura propuesta</p>
+            <div class="sitemap"><span class="u">barretos.cr/</span>
+│
+├─ <span class="u">/</span>                    <span class="kw">home — marca + resumen</span>
+├─ <span class="u">/botas/</span>              <span class="kw">→ "botas vaqueras costa rica", "botas justin"</span>
+├─ <span class="u">/sombreros/</span>          <span class="kw">→ "sombreros vaqueros", "stetson costa rica"</span>
+├─ <span class="u">/monturas-aperos/</span>    <span class="kw">→ "monturas caballo", "mantillas y aperos"</span>
+├─ <span class="u">/ropa/</span>               <span class="kw">→ "camisas vaqueras", "wrangler mujer"</span>
+│
+└─ <span class="u">/marcas/</span>
+   ├─ <span class="u">/justin-boots/</span>    <span class="kw">→ "justin boots costa rica"</span>  <span class="excl">◆ exclusiva</span>
+   ├─ <span class="u">/wrangler/</span>        <span class="kw">→ "wrangler costa rica"</span>      <span class="excl">◆ exclusiva</span>
+   └─ <span class="u">/nokota-horse/</span>    <span class="kw">→ "nokota horse costa rica"</span>   <span class="excl">◆ exclusiva</span></div>
+            <p style="font-size:13.5px;color:var(--ink-soft);margin:12px 0 0;">Las <strong>marcas de distribución exclusiva</strong> (Justin, Wrangler, Nokota) son la mayor oportunidad: alta intención de compra y casi sin competencia local — quien busca la marca en Costa Rica sólo puede comprarla aquí.</p>
+          </div>
+
+          <div>
+            <p class="block-label">Qué necesita cada página</p>
+            <ul class="checklist">
+              <li><code>&lt;title&gt;</code> único con keyword + "Cartago / Costa Rica"</li>
+              <li>Un solo <code>H1</code> con la keyword principal</li>
+              <li>300–600 palabras de contenido útil real</li>
+              <li>Fotos reales con <em>alt text</em> descriptivo <span style="color:var(--good)">(ya las tenemos)</span></li>
+              <li>CTA de WhatsApp con parámetro <code>location</code> propio</li>
+              <li>Enlaces internos desde la home y entre páginas</li>
+              <li>JSON-LD <code>CollectionPage</code> + breadcrumbs</li>
+              <li>Agregar la URL a <code>sitemap.xml</code></li>
+            </ul>
+          </div>
+
+          <div class="do-now">
+            <span class="dn-label">Por dónde empezar</span>
+            <ol class="steps">
+              <li>Ordenar las queries de Search Console por <strong>impresiones con pocos clics</strong> — ahí está la demanda insatisfecha. Semillas claras hoy: <em>tienda vaquera cartago</em> (33 impr), <em>tiendas vaqueras en cartago</em> (25), <em>tienda vaquera costa rica</em> (10).</li>
+              <li>Lanzar <strong>2–3 páginas primero</strong> (p. ej. /botas/ + /marcas/justin-boots/), no las diez de golpe.</li>
+              <li>Medir 3–4 semanas en Search Console; replicar el patrón de las que suban.</li>
+            </ol>
+            <p style="font-size:13px;color:var(--ink-soft);margin:14px 0 0;"><strong>Nota técnica:</strong> el sitio no tiene build. Cada página es una carpeta con su <code>index.html</code>; conviene mantener una plantilla base para header/footer y no duplicarlos a mano en cada URL.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- JUGADA 2 -->
+      <details class="play">
+        <summary class="play-head">
+          <div class="play-badge">2</div>
+          <div class="ph-text">
+            <span class="ph-tag">Conversión · medición</span>
+            <h3>Medir el cierre de WhatsApp</h3>
+          </div>
+          <div class="effort">Esfuerzo <b>bajo</b><br>Impacto <b>alto</b></div>
+        </summary>
+        <div class="play-body">
+          <div class="pn prob"><span class="pn-k">Problema</span><p>Hoy medimos <strong>129 clics = intención</strong>, no ventas. Sin cerrar el ciclo no sabemos la tasa de cierre, el valor por lead ni qué página trae los mejores clientes.</p></div>
+          <div class="pn sol"><span class="pn-k">Solución</span><p>Registrar el embudo completo, del clic a la venta. No requiere tecnología nueva para empezar — sólo disciplina de etiquetado en WhatsApp Business.</p></div>
+
+          <div>
+            <p class="block-label">El embudo a medir</p>
+            <div class="funnel">
+              <div class="stage known"><span class="st-l">Clics WhatsApp</span><span class="st-v">129 <small>GA4</small></span></div>
+              <div class="arrow">→</div>
+              <div class="stage gap"><span class="st-l">Conversaciones</span><span class="st-v">? <small>WA</small></span></div>
+              <div class="arrow">→</div>
+              <div class="stage gap"><span class="st-l">Cotizaciones</span><span class="st-v">? <small>WA</small></span></div>
+              <div class="arrow">→</div>
+              <div class="stage gap"><span class="st-l">Ventas</span><span class="st-v">? <small>WA</small></span></div>
+              <div class="arrow">→</div>
+              <div class="stage gap"><span class="st-l">₡ facturado</span><span class="st-v">? <small>caja</small></span></div>
+            </div>
+            <p style="font-size:13px;color:var(--ink-soft);margin:12px 0 0;">Sólo el primer paso está instrumentado hoy. Los demás se llenan con etiquetas en WhatsApp — de ahí salen la tasa de cierre y el valor real por lead.</p>
+          </div>
+
+          <div>
+            <p class="block-label">La escalera — elegir según madurez</p>
+            <div class="ladder">
+              <div class="rung"><span class="r-tier">Nivel 1 · ya, gratis</span><h4>WhatsApp Business + etiquetas</h4><p>Etiquetas: <em>Nuevo · En conversación · Cotización · Vendido · Perdido</em>. Una hoja semanal cruza clics (GA4) vs conversaciones vs ventas vs ₡.</p></div>
+              <div class="rung"><span class="r-tier">Nivel 2 · al escalar</span><h4>API / CRM</h4><p>WhatsApp Business API vía Wati, Callbell o 360dialog: bandeja compartida, etiquetas automáticas, reportes y varios agentes a la vez.</p></div>
+              <div class="rung"><span class="r-tier">Nivel 3 · avanzado</span><h4>Atribución a GA4</h4><p>Importar las ventas como conversión <em>offline</em> a GA4 para atribuir cada venta al canal y la página que la originó.</p></div>
+            </div>
+          </div>
+
+          <div class="do-now">
+            <span class="dn-label">Esta semana</span>
+            <ol class="steps">
+              <li>Activar las etiquetas en la app de <strong>WhatsApp Business</strong>.</li>
+              <li>Verificar que cada CTA del sitio use un <code>location</code> y un <strong>mensaje prellenado distinto</strong> ("Hola, me interesan las <em>botas Justin</em>…") — así la conversación misma dice de dónde vino el lead.</li>
+              <li>Montar la hoja semanal <strong>clics → conversaciones → ventas → ₡</strong>.</li>
+            </ol>
+          </div>
+        </div>
+      </details>
+
+      <!-- JUGADA 3 -->
+      <details class="play">
+        <summary class="play-head">
+          <div class="play-badge">3</div>
+          <div class="ph-text">
+            <span class="ph-tag">Local + redes · sostener</span>
+            <h3>Amplificar lo que ya rinde</h3>
+          </div>
+          <div class="effort">Esfuerzo <b>bajo</b><br>Impacto <b>medio</b></div>
+        </summary>
+        <div class="play-body">
+          <div class="two-col">
+            <div class="mini-card">
+              <span class="mc-tag">Local · Google Maps</span>
+              <h3>Perfil de Google Business</h3>
+              <p>Las búsquedas <em>"barretos cartago"</em> y la audiencia 83% móvil piden un perfil de Google Business optimizado (fotos, horario, ubicación, reseñas). Es la mayor palanca para el "local pack" y Maps de una tienda física — y alimenta las búsquedas locales de la Jugada 1.</p>
+            </div>
+            <div class="mini-card">
+              <span class="mc-tag">Redes · escalar</span>
+              <h3>Más contenido social</h3>
+              <p>Las redes aportan el 10% de los usuarios pero el 17% de los leads: convierten por encima de su peso. Publicar catálogo y novedades con constancia, siempre con enlace directo a WhatsApp, escala un canal ya probado.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <div class="notes">
+    <h3>Notas metodológicas</h3>
+    <ul>
+      <li>Período: 8 jun – 10 jul 2026 (desde que el dominio <strong>barretos.cr</strong> salió en vivo). GA4 propiedad <span class="num">540640289</span>; Search Console propiedad de dominio <strong>barretos.cr</strong>.</li>
+      <li>"Key events" (86) es la métrica de conversiones de GA4; los conteos por evento (WhatsApp 129, etc.) reflejan cada disparo del botón. Las cifras de idioma son aproximadas al leerse del gráfico.</li>
+      <li>Parte del tráfico de EE.UU. (Ashburn) y Europa (Polonia) puede corresponder a bots/rastreadores, no a clientes reales; conviene filtrarlo en análisis futuros.</li>
+      <li>Los datos de Search Console tienen ~2 días de rezago; el último día incluido ronda el 7–8 de julio.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>Barretos Western Store · Cartago, Costa Rica</span>
+    <span>Elaborado por Codealab · datos GA4 + Search Console</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
